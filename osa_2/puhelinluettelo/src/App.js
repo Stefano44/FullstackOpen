@@ -12,6 +12,12 @@ const Notification = ({message}) => {
         {message}
       </div>
     )
+  } else if (message.includes("failed")) {
+    return (
+      <div className="error"> 
+        {message}
+      </div>
+    )
   }
 
   return (
@@ -27,7 +33,7 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNum, setNewNum] = useState("")
   const [search, setSearch] = useState("")
-  const [addMessage, setAddMessage] = useState("")
+  const [addMessage, setAddMessage] = useState(null)
 
 
   useEffect(() => {
@@ -69,7 +75,7 @@ const App = () => {
           })
           .catch(error => {
             setAddMessage(
-              `Inormation of ${newName} has already been removed from server`
+              `Information of ${newName} has already been removed from server`
             )
             setTimeout(() => {
               setAddMessage(null)
@@ -100,6 +106,13 @@ const App = () => {
           setTimeout(() => {
             setAddMessage(null)
           }, 5000)
+        })
+        .catch(error => {
+          setAddMessage(error.response.data.error)
+          setTimeout(() => {
+            setAddMessage(null)
+          }, 5000)
+          console.log(error.response.data)
         })
     }
   }
