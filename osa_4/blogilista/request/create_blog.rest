@@ -1,0 +1,10 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJsb2dpbWllcyIsImlkIjoiNjJmMTRhYzgwMzc1OWU5MjIxZGZmZGVkIiwiaWF0IjoxNjYwMDU3MTc5fQ.S6d0dBitmAgNxR3H7CFe4zntotbiBx7DLC2cumFWBKA
+
+{
+    "title": "HErkkublogi",
+    "author": "Leipuri mies",
+    "url": "pullaa.fi",
+    "likes": 7
+}
